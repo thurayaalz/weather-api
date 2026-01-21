@@ -3,7 +3,7 @@ import {safeWeather} from "./we.js";
 import {submit , city,cityName,cityTemp, container} from "./elements.js";
 
 
-// listener for the button or on click
+// listener for the button 
 submit.addEventListener("click", async(e)=>{
   e.preventDefault();
   let loc = city.value.trim();
@@ -15,7 +15,6 @@ async function fetchData(loc){
   let data = await safeWeather(loc);
   return data
 };
-
 
 //render the result 
 function render(data) {

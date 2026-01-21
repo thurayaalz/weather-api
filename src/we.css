@@ -1,0 +1,292 @@
+html,
+body {
+  background-color: rgb(14, 14, 14);
+  color: rgb(214, 179, 245);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+/*-----------animated background---------*/
+:root {
+  /* Backgrounds — dark, atmospheric */
+  --color-bg1: rgb(20, 24, 38);     /* deep indigo */
+  --color-bg2: rgb(5, 10, 22);      /* almost-night navy */
+
+  /* Circle colors — dimmer, weather-themed */
+  --color1: 40, 90, 150;            /* cold blue, subdued */
+  --color2: 110, 70, 140;           /* muted purple, cloudy */
+  --color3: 60, 130, 150;           /* soft teal, misty */
+  --color4: 130, 50, 50;            /* dull storm red, not neon */
+  --color5: 120, 120, 60;           /* muted olive yellow, like hazy sun */
+
+  /* Interactive — subtle, not glowing too hard */
+  --color-interactive: 90, 80, 150;
+
+  --circle-size: 80%;
+  --blending: soft-light;
+}
+
+.gr-bg {
+  background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+svg {
+  display: none;
+}
+.gr-con {
+  width: 100vh;
+  height: 100vh;
+  filter: url(#goo) blur(25px);
+}
+.g1 {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color1), 0.8) 0,
+      rgba(var(--color1), 0) 50%
+    )
+    no-repeat;
+  opacity: 1;
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  mix-blend-mode: var(--blending);
+  animation: moveV 30s ease infinite;
+  transform-origin: center center;
+}
+.g2 {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color2), 0.8) 0,
+      rgba(var(--color2), 0) 50%
+    )
+    no-repeat;
+  opacity: 1;
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  mix-blend-mode: var(--blending);
+  animation: moveC 20s reverse infinite;
+  transform-origin: calc(50% - 400px);
+  opacity: 1;
+}
+.g3 {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color3), 0.8) 0,
+      rgba(var(--color3), 0) 50%
+    )
+    no-repeat;
+  opacity: 1;
+  top: calc(50% - var(--circle-size) / 2 +200px);
+  left: calc(50% - var(--circle-size) / 2 + 500px);
+  mix-blend-mode: var(--blending);
+  animation: moveC 40s linear infinite;
+  transform-origin: calc(50% + 400px);
+}
+.g4 {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color4), 0.8) 0,
+      rgba(var(--color4), 0) 50%
+    )
+    no-repeat;
+  opacity: 1;
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  mix-blend-mode: var(--blending);
+  animation: moveH 40s ease infinite;
+  transform-origin: calc(50% - 200px);
+  opacity: 0.7;
+}
+.g5 {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  position: absolute;
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color5), 0.8) 0,
+      rgba(var(--color5), 0) 50%
+    )
+    no-repeat;
+  opacity: 1;
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  mix-blend-mode: var(--blending);
+}
+.inter {
+  position: absolute;
+  mix-blend-mode: var(--blending);
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color-interactive), 0.8) 0,
+      rgba(var(--color-interactive), 0) 50%
+    )
+    no-repeat;
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  opacity: 0.7;
+}
+header{
+padding-left: 600px;
+}
+#title{
+  margin:10px;
+  left:600px;
+}
+@keyframes moveC {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes moveV {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+@keyframes moveH {
+  0% {
+    transform: translateY(-50%) translateX(-10%);
+  }
+  50% {
+    transform: translateY(50%) translateX(10%);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-10%);
+  }
+}
+/*-------------------------------------*/
+header {
+  z-index: 2;
+  opacity: 1;
+  position: absolute;
+  width: 100vw;
+  height: 60px;
+  justify-items: center;
+  border-bottom: rgba(207, 204, 204, 10%) 0.02px solid;
+  color: aliceblue;
+  display: grid;
+  grid-template-columns: 0.03fr 0.04fr 0.97fr;
+}
+.sv {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 25px;
+  width: 25px;
+  margin: 5px;
+  margin-left: 10px;
+}
+.sv:hover {
+  box-shadow: 0 1px 10px white;
+}
+.dim{
+  z-index: -10;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.logn{
+  z-index: -9;
+  color: white;
+  height: 300px;
+  position: absolute;
+  top: -1000px;
+  left:-100px;
+  background-color: rgba(39, 37, 37, 0.796);
+  z-index:10;
+  width: 400px;
+  border-radius: 20px ;
+  padding: 10px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.357);
+    backdrop-filter: blur(7px);
+  margin:auto;
+}
+main {
+  z-index: 1;
+  opacity: 1;
+  position: absolute;
+  align-content: center;
+  justify-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+form{
+    justify-content:left;
+    align-items:center;
+    display:flex;
+    background-color: rgb(203, 201, 201, 0.5);
+    backdrop-filter: blur(10px);
+    height: 100px;
+    width: 500px;
+    top:100px;
+    left:30%;
+    color: white;
+    border-radius:10px;
+    padding:15px;
+    position: absolute;
+    gap:5px;
+    margin: auto;
+    box-shadow: 0 10px 20px rgba(71, 71, 71 , 0.6);
+    transition: 4s ease;
+}
+
+form input , form button{
+    height: 40%;
+    border-radius: 10px;
+    border: none;
+    background-color:rgba(238, 238, 238 , 0.6);
+}
+form input {
+  margin-left: 35px;
+  width:60%;
+}
+
+
+@property --deg {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@keyframes Rot {
+  to {
+    --deg: 360deg;
+  }
+}
