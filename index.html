@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+<script defer src="main.js"></script></head>
+<body>
+    <header>
+        <h1 id="title">Weatherly</h1>
+     
+    </header>
+ 
+    <main>
+  <form action="#" method="get">
+            <label for="enterLocation">Enter City</label>
+            <input type="text" id="city">
+            <button id="locationBtn" type="submit">Search!</button>
+        </form>
+        <div class="container">
+          <h1 id="cityName"> Dammam </h1>
+          <h1 id="cityTemp"> 13 &deg;C</h1>
+        </div>
+    </main>
+    
+ <div class="gr-bg">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="10"
+              result="blur"
+            />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+              result="goo"
+            />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div class="gr-con">
+        <div class="g1"></div>
+        <div class="g2"></div>
+        <div class="g3"></div>
+        <div class="g4"></div>
+        <div class="g5"></div>
+        <div class="inter"></div>
+      </div>
+    </div>
+</body>
+</html>
